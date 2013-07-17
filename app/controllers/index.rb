@@ -1,3 +1,5 @@
+enable :sessions
+
 get '/' do
   # Look in app/views/index.erb
   erb :index
@@ -9,6 +11,8 @@ post '/login' do
 
   if @user 
     @notification = "Logged In"
+    session[:email] = params[:user][:email]
+    session[:password] = params[:user][:password]
   else
     @notification = "Invalid Login"
   end
