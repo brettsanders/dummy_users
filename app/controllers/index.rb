@@ -26,3 +26,11 @@ post '/signup' do
   User.create(params[:user])
   erb :index
 end
+
+get '/secret-page' do 
+  if current_user
+    erb :secret_page
+  else
+    erb :index
+  end
+end
