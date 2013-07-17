@@ -1,11 +1,11 @@
 <div class="container">
-
-  <% if @notification %>
-    <%= @notification %>
+  <% if current_user %>
+    <h3>Logged In</h3>
+    <h3><a href="/logout" >Logout</a></h3>
   <% end %>
 
   <% if @user %>
-    <%= @user[:first_name] %>
+    <%= @user.first_name %>
   <% end %>
 
   <h3>Signup</h3>
@@ -24,5 +24,7 @@
     Password: <input type="text" name="user[password]"><br>
     <input type="submit" value="Submit">
   </form>
+
+
 
 </div>
